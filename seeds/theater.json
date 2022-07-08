@@ -1,0 +1,35 @@
+[
+  {
+    "name": "AMC The Grove 14",
+    "address": "189 The Grove Dr, Los Angeles, CA 90036",
+    "seatingrating": 4,
+    "concessionsrating": 5,
+    "audiorating": 4,
+    "videorating": 3,
+    "parkingrating": 2,
+    "servicerating": 4,
+    "crowdrating": 2
+  },
+  {
+    "name": "AMC Norwalk 20",
+    "address": "12300 Civic Center Dr, Norwalk, CA 90650",
+    "seatingrating": 3,
+    "concessionsrating": 2,
+    "audiorating": 4,
+    "videorating": 5,
+    "parkingrating": 4,
+    "servicerating": 3,
+    "crowdrating": 4
+  },
+  {
+    "name": "AMC Puente Hills 20",
+    "address": "1560 S Azusa Ave, City of Industry, CA 91748",
+    "seatingrating": 4,
+    "concessionsrating": 5,
+    "audiorating": 4,
+    "videorating": 3,
+    "parkingrating": 2,
+    "servicerating": 4,
+    "crowdrating": 2
+  }
+]
