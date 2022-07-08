@@ -1,0 +1,13 @@
+[
+    {
+        "name": "Jane Doe",
+        "reviewtext": "Lorem ipsum",
+        "seatingrating": 4,
+        "concessionsrating": 5,
+        "audiorating": 4,
+        "videorating": 3,
+        "parkingrating": 2,
+        "servicerating": 4,
+        "crowdrating": 2
+}
+]
