@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class Review extends Model { }
 
-Theater.init(
+Review.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -17,6 +17,10 @@ Theater.init(
         },
         reviewtext: {
             type: DataTypes.STRING,
+            allowNull: false,
+        },
+        theater_id: {
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         seatingrating: {
@@ -53,7 +57,7 @@ Theater.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'project',
+        modelName: 'review',
     }
 );
 
