@@ -1,7 +1,8 @@
 [
     {
-        "name": "Jane Doe",
+        "user_id": "Jane Doe",
         "reviewtext": "Lorem ipsum",
+        "theater_id": 2,
         "seatingrating": 4,
         "concessionsrating": 5,
         "audiorating": 4,
