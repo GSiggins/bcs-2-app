@@ -6,7 +6,6 @@ const Review = require('./Review')
 //     foreignKey: 'id',
 // });
 
-// // Define a Driver as having many Cars, thus creating a foreign key in the `car` table
 // User.hasMany(Review, {
 //     foreignKey: 'id',
 //     onDelete: 'CASCADE',
