@@ -6,12 +6,12 @@ router.get('/', async (req, res) => {
   try {
     // Get all theaters and JOIN with user data
     const theaterData = await Theater.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['name'],
+      //   },
+      // ],
     });
 
     // Serialize data so the template can read it
@@ -54,8 +54,8 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Theater }],
+      // attributes: { exclude: ['password'] },
+      // include: [{ model: Theater }],
     });
 
     const user = userData.get({ plain: true });
