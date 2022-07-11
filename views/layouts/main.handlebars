@@ -38,11 +38,14 @@
               {{#if logged_in}}
               <button type="button" id="logout" class="btn btn-outline-light me-2">Logout</button>
               {{else}}
-              
-              
-              <button type="button" class="btn btn-outline-light me-2"><a href="/login">Login</a></button>
-              <button type="button" class="btn btn-warning"><a href="/login">Sign-Up</a></button> 
+              <button type="button" class="btn btn-outline-light me-2"><a href="/login"style="text-decoration:none">Login</a></button>
+              <button type="button" class="btn btn-warning" style="text-decoration:none"><a href="/login"style="text-decoration:none">Sign-Up</a></button> 
               {{/if}}
+            {{!-- </div>
+              <button type="button" class="btn btn-outline-light me-2">Login</button>
+              {{else}}
+              <button type="button" class="btn btn-warning">Sign-up</button>
+              <button type="button" class-"btn btn-outline-red me-2">Logout</button> --}}
             </div>
           </div>
         </div>

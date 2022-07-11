@@ -11,7 +11,6 @@ const Review = require('./Review')
 //     onDelete: 'CASCADE',
 // });
 
-// // The association can also be created from the Car side
 // Review.belongsTo(Theater, {
 //     foreignKey: 'theater_id',
 // });
