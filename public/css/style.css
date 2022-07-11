@@ -51,19 +51,20 @@
     /* margin-top: 10px;
     margin-bottom: 10px;
   }  */
-  /* .box{
+   .box{ 
     width: 100%;
     height: 50%;            
     position: absolute;
     top: 0;
     left: 0;
     animation-name: intro-b;
-    animation-duration: 7s;
+    animation-duration: 8s;
     animation-fill-mode: forwards;
+    
 }
 @keyframes intro-b {
     from {top: 0px;}
-    to {top: -300px;}
+    to {top: -350px;}
     } 
 
 .box-two{
@@ -79,14 +80,21 @@
 
 @keyframes intro-a {
 from {bottom: 0px;}
-to {bottom: -300px;} */
-}   
+to {bottom: -100px;} 
+}     
 
-#popcorn-pal {
-  font-family: 'Limelight', cursive;
-  font-size:xx-large;
-  color: white;
-  /* font-family: 'Bungee Shade', cursive;
+#nav {
+  position: relative;
+  z-index:10;
+}
+#title {
+bottom: 100px;
+position: absolute;
+top: 300px;
+color: white;
+font-family: 'Bungee Shade', cursive;
+}
+  /* font-family: 'Limelight', cursive; */
 font-family: 'Codystar', cursive;
 font-family: 'Fascinate Inline', cursive;
 font-family: 'Monofett', cursive; */
