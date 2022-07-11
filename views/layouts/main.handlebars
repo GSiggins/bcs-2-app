@@ -36,27 +36,22 @@
     
             <div class="text-end">
               {{#if logged_in}}
+
               <button type="button" class="btn btn-outline-light me-2"><a href="/views/homepage.handlebars">Logout</a></button>
               {{else}}
               <button type="button" class="btn btn-outline-light me-2">Login</button>
               <button type="button" class="btn btn-warning">Sign-up</button>
               {{/if}}
             </div>
+              <button type="button" class="btn btn-outline-light me-2">Login</button>
+              {{else}}
+              <button type="button" class="btn btn-warning">Sign-up</button>
+              <button type="button" class-"btn btn-outline-red me-2">Logout</button>
+            </div>
           </div>
         </div>
       </header>
-    
-      
-    
-     <main>{{{body}}}</main>
-
-
-      
-
-
-
-
-
+   <main>{{{body}}}</main>
 
 
 <!-- JavaScript Bundle with Popper -->
