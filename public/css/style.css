@@ -91,10 +91,61 @@ to {bottom: -100px;}
 bottom: 100px;
 position: absolute;
 top: 300px;
-color: white;
-font-family: 'Bungee Shade', cursive;
-/* font-family: 'Limelight', cursive; 
-font-family: 'Codystar', cursive;
-font-family: 'Fascinate Inline', cursive;
-font-family: 'Monofett', cursive;  */
+font-family: 'Bungee Shade', cursive;  
+color: #fff;
+animation: pulsate 0.11s ease-in-out infinite alternate; 
 }
+
+/* font-family: 'Codystar', cursive; */
+/* font-family: 'Fascinate Inline', cursive; */
+/* font-family: 'Monofett', cursive;  
+font-family: 'Limelight', cursive; 
+/* font-family: 'Bungee Outline', cursive;  */
+
+@keyframes pulsate {
+  100% {
+    /* Larger blur radius */
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #0fa,
+      0 0 80px #0fa,
+      0 0 90px #0fa,
+      0 0 100px #0fa,
+      0 0 150px #0fa;
+  }
+ 0% {
+    /* A slightly smaller blur radius */
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #fff,
+      0 0 18px #fff,
+      0 0 38px #0fa,
+      0 0 73px #0fa,
+      0 0 80px #0fa,
+      0 0 94px #0fa,
+      0 0 140px #0fa;
+  }
+}
+
+
+
+
+
+
+h1 {
+  font-size: 7rem;
+}
+
+color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px #0fa,
+      0 0 82px #0fa,
+      0 0 92px #0fa,
+      0 0 102px #0fa,
+      0 0 151px #0fa;
+
