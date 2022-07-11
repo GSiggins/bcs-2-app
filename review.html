@@ -6,39 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.1">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="d-flex justify-content-left flex-wrap flex-column">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+    <form id="form">
+        <div class="d-flex justify-content-left flex-wrap flex-column">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+            <textarea id="review-text"></textarea>
+            <label for="customRange2" class="form-label">Theater Rating:</label>
+            <input type="range" class="form-range" min="1" max="5"  id="theater-rating">
+            <output id="theater-output"></output>
+            <label for="customRange2" class="form-label">Seating Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="seating-rating">
+            <output id="seating-output"></output>
+            <label for="customRange2" class="form-label">Concession Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="concession-rating">
+            <output id="concession-output"></output>
+            <label for="customRange2" class="form-label">Audio Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="audio-rating">
+            <output id="audio-output"></output>
+            <label for="customRange2" class="form-label">Video Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="video-rating">
+            <output id="video-output"></output>
+            <label for="customRange2" class="form-label">Parking Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="parking-rating">
+            <output id="parking-output"></output>
+            <label for="customRange2" class="form-label">Service Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="service-rating">
+            <output id="service-output"></output>
+            <label for="customRange2" class="form-label">Crowd Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="crowd-rating">
+            <output id="crowd-output"></output>
         </div>
-        <textarea></textarea>
-        <label for="customRange2" class="form-label">Theater Rating:</label>
-        <input type="range" class="form-range" min="1" max="5" id="customRange2">
-        <label for="customRange2" class="form-label">Seating Rating:</label>
-        <input type="range" class="form-range" min="1" max="5" id="customRange2">
-        <label for="customRange2" class="form-label">Concession Rating:</label>
-        <input type="range" class="form-range" min="1" max="5" id="customRange2">
-        <label for="customRange2" class="form-label">Audio Rating:</label>
-        <input type="range" class="form-range" min="1" max="5" id="customRange2">
-        <label for="customRange2" class="form-label">Video Rating:</label>
-        <input type="range" class="form-range" min="1" max="5" id="customRange2">
-        <label for="customRange2" class="form-label">Parking Rating:</label>
-        <input type="range" class="form-range" min="1" max="5" id="customRange2">
-        <label for="customRange2" class="form-label">Service Rating:</label>
-        <input type="range" class="form-range" min="1" max="5" id="customRange2">
-        <label for="customRange2" class="form-label">Crowd Rating:</label>
-        <input type="range" class="form-range" min="1" max="5" id="customRange2">
-    </div>
+        <button type="button" class="btn btn-primary btn-lg" id="submit-btn">Large button</button>
+    </form>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./modal.js"></script>
 
 </html>
