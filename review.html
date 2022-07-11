@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
@@ -35,23 +36,31 @@
                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                     </ul>
                 </div>
-                <textarea id="review text"></textarea>
-                <label for="customRange2" class="form-label">Theater Rating:</label>
-                <input type="range" class="form-range" min="1" max="5" id="theater-rating">
-                <label for="customRange2" class="form-label">Seating Rating:</label>
-                <input type="range" class="form-range" min="1" max="5" id="seating-rating">
-                <label for="customRange2" class="form-label">Concession Rating:</label>
-                <input type="range" class="form-range" min="1" max="5" id="concession-rating">
-                <label for="customRange2" class="form-label">Audio Rating:</label>
-                <input type="range" class="form-range" min="1" max="5" id="audio-rating">
-                <label for="customRange2" class="form-label">Video Rating:</label>
-                <input type="range" class="form-range" min="1" max="5" id="video-rating">
-                <label for="customRange2" class="form-label">Parking Rating:</label>
-                <input type="range" class="form-range" min="1" max="5" id="parking-rating">
-                <label for="customRange2" class="form-label">Service Rating:</label>
-                <input type="range" class="form-range" min="1" max="5" id="service-rating">
-                <label for="customRange2" class="form-label">Crowd Rating:</label>
-                <input type="range" class="form-range" min="1" max="5" id="crowd-rating">
+            <textarea id="review-text"></textarea>
+            <label for="customRange2" class="form-label">Theater Rating:</label>
+            <input type="range" class="form-range" min="1" max="5"  id="theater-rating">
+            <output id="theater-output"></output>
+            <label for="customRange2" class="form-label">Seating Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="seating-rating">
+            <output id="seating-output"></output>
+            <label for="customRange2" class="form-label">Concession Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="concession-rating">
+            <output id="concession-output"></output>
+            <label for="customRange2" class="form-label">Audio Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="audio-rating">
+            <output id="audio-output"></output>
+            <label for="customRange2" class="form-label">Video Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="video-rating">
+            <output id="video-output"></output>
+            <label for="customRange2" class="form-label">Parking Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="parking-rating">
+            <output id="parking-output"></output>
+            <label for="customRange2" class="form-label">Service Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="service-rating">
+            <output id="service-output"></output>
+            <label for="customRange2" class="form-label">Crowd Rating:</label>
+            <input type="range" class="form-range" min="1" max="5" id="crowd-rating">
+            <output id="crowd-output"></output>
             </div>
         </p>
             </div>
@@ -63,5 +72,7 @@
         </div>
       </div>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./modal.js"></script>
 
 </html>
