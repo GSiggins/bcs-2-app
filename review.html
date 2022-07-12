@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./public/css/jass.css" />
+    <link rel="stylesheet" type="text/css" href="./public/css/style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button type="button" class="btn btn-primary" id='add-review' data-bs-toggle="modal" data-bs-target="#review-modal">
+        Add review
+    </button>
+    <div class="modal fade" id="review-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title d-flex justify-content-center text-center" id="reviewModalLabel">My review
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                    <div class="d-flex justify-content-left flex-wrap flex-column">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Theater Location
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                        <textarea id="review-text"></textarea>
+                        <label for="customRange2" class="form-label">Theater Rating:</label>
+                        <input type="range" class="form-range" min="1" max="5" id="theater-rating">
+                        <output id="theater-output"></output>
+                        <label for="customRange2" class="form-label">Seating Rating:</label>
+                        <input type="range" class="form-range" min="1" max="5" id="seating-rating">
+                        <output id="seating-output"></output>
+                        <label for="customRange2" class="form-label">Concession Rating:</label>
+                        <input type="range" class="form-range" min="1" max="5" id="concession-rating">
+                        <output id="concession-output"></output>
+                        <label for="customRange2" class="form-label">Audio Rating:</label>
+                        <input type="range" class="form-range" min="1" max="5" id="audio-rating">
+                        <output id="audio-output"></output>
+                        <label for="customRange2" class="form-label">Video Rating:</label>
+                        <input type="range" class="form-range" min="1" max="5" id="video-rating">
+                        <output id="video-output"></output>
+                        <label for="customRange2" class="form-label">Parking Rating:</label>
+                        <input type="range" class="form-range" min="1" max="5" id="parking-rating">
+                        <output id="parking-output"></output>
+                        <label for="customRange2" class="form-label">Service Rating:</label>
+                        <input type="range" class="form-range" min="1" max="5" id="service-rating">
+                        <output id="service-output"></output>
+                        <label for="customRange2" class="form-label">Crowd Rating:</label>
+                        <input type="range" class="form-range" min="1" max="5" id="crowd-rating">
+                        <output id="crowd-output"></output>
+                    </div>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./public/js/modal.js"></script>
+
+</html>
