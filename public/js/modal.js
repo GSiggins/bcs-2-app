@@ -37,5 +37,3 @@ console.log(userReview)
 
 
 submitBtn.on('click', reviewSubmit)
-
-module.exports = userReview;
