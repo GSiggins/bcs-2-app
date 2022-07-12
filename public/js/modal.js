@@ -11,6 +11,11 @@ const service = $('#service-rating')
 const crowd = $('#crowd-rating')
 const submitBtn = $('#submit-btn')
 
+const myInput = document.getElementById('add-review')
+
+const myModal = new bootstrap.Modal('#review-modal', {
+    keyboard: false
+  })
 // const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
 // const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new bootstrap.Dropdown(dropdownToggleEl))
 
@@ -35,5 +40,8 @@ console.log(userReview)
 // fetch with userReview obj
 // POST req
 
+myModal.addEventListener('hidden.bs.modal', event => {
+  // do something...
+})
 
 submitBtn.on('click', reviewSubmit)
