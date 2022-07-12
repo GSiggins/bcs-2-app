@@ -10,5 +10,53 @@
         "parkingrating": 2,
         "servicerating": 4,
         "crowdrating": 2
+},
+{
+    "user_id": "Jane Doe",
+    "reviewtext": "Lorem ipsum",
+    "theater_id": 2,
+    "seatingrating": 4,
+    "concessionsrating": 5,
+    "audiorating": 4,
+    "videorating": 3,
+    "parkingrating": 2,
+    "servicerating": 4,
+    "crowdrating": 2
+},
+{
+    "user_id": "Jane Doe",
+    "reviewtext": "Lorem ipsum",
+    "theater_id": 2,
+    "seatingrating": 3,
+    "concessionsrating": 2,
+    "audiorating": 3,
+    "videorating": 4,
+    "parkingrating": 3,
+    "servicerating": 3,
+    "crowdrating": 1
+},
+{
+    "user_id": "Jane Doe",
+    "reviewtext": "Lorem ipsum",
+    "theater_id": 2,
+    "seatingrating": 1,
+    "concessionsrating": 3,
+    "audiorating": 2,
+    "videorating": 1,
+    "parkingrating": 4,
+    "servicerating": 2,
+    "crowdrating": 3
+},
+{
+    "user_id": "Jane Doe",
+    "reviewtext": "Lorem ipsum",
+    "theater_id": 2,
+    "seatingrating": 4,
+    "concessionsrating": 4,
+    "audiorating": 2,
+    "videorating": 3,
+    "parkingrating": 4,
+    "servicerating": 2,
+    "crowdrating": 3
 }
 ]
