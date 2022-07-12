@@ -14,6 +14,10 @@ Review.init(
         user_id: {
             type: DataTypes.STRING,
             allowNull: false,
+            references: {
+                model:'user',
+                key: 'id',
+            }
         },
         reviewtext: {
             type: DataTypes.STRING,
@@ -22,6 +26,10 @@ Review.init(
         theater_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
+            references: {
+                model: 'theater',
+                key: 'id',
+            }
         },
         seatingrating: {
             type: DataTypes.INTEGER,
