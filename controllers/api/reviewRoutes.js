@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Review } = require('../../models');
-const newReview = 
+// const newReview = 
 // route:   /api/reviews/
 
 router.post('/', withAuth, async (req, res) => {
@@ -32,7 +32,7 @@ router.delete('/:id', withAuth, async (req, res) => {
             return;
         }
 
-        res.status(200).json(reviewData);
+        res.status(200).json(reviewData); 
     } catch (err) {
         res.status(500).json(err);
     }
