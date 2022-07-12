@@ -17,4 +17,24 @@ const withAuth = require('../../utils/auth');
 //   }
 // });
 
+const { Sequelize } = require('sequelize')
+await Review.findAll({
+    where: {
+        theater_id: req.params.id
+    },
+    attributes: [
+        [Sequelize.fn('AVG', Sequelize.cast(Sequelize.col('seatingrating'), 'integer')), 'avgSeatingRating'],
+        [Sequelize.fn('AVG', Sequelize.cast(Sequelize.col('concessionsrating'), 'integer')), 'avgConcessionsRating'],
+        [Sequelize.fn('AVG', Sequelize.cast(Sequelize.col('audiorating'), 'integer')), 'avgAudioRating'],
+        [Sequelize.fn('AVG', Sequelize.cast(Sequelize.col('videorating'), 'integer')), 'avgVideoRating'],
+        [Sequelize.fn('AVG', Sequelize.cast(Sequelize.col('parkingrating'), 'integer')), 'avgParkingRating'],
+        [Sequelize.fn('AVG', Sequelize.cast(Sequelize.col('servicerating'), 'integer')), 'avgServiceRating'],
+        [Sequelize.fn('AVG', Sequelize.cast(Sequelize.col('crowdrating'), 'integer')), 'avgCrowdRating'],
+
+        [Sequelize.fn('AVG', Sequelize.cast(Sequelize.col('crowdrating', 'servicerating', 'parkingrating', 
+        'videorating', 'audiorating', 'concessionsrating', 'seatingrating'), 
+        'integer')), 'masterRating'],
+    ]
+});
+
 module.exports = router;
