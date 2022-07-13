@@ -1,0 +1,40 @@
+<div>
+    <div class="container-xl">
+        <nav class="navbar bg-light">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Theaters</span>
+            </div>
+        </nav>
+
+
+        <div class="accordion" id="accordionExample"></div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h2 class="mb-1">{{name}}</h2>
+                        <small>{{address}}</small>
+                    </div>
+                    <h3>{{reviews.[0].masterRating}}</h3>
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Seating: {{reviews.[0].avgSeatingRating}}</li>
+                            <li class="list-group-item">Concessions: {{reviews.[0].avgConcessionsRating}}</li>
+                            <li class="list-group-item">Audio: {{reviews.[0].avgAudioRating}}</li>
+                            <li class="list-group-item">Video: {{reviews.[0].avgVideoRating}}</li>
+                            <li class="list-group-item">Parking: {{reviews.[0].avgParkingRating}}</li>
+                            <li class="list-group-item">Service: {{reviews.[0].avgServiceRating}}</li>
+                            <li class="list-group-item">Crowd: {{reviews.[0].avgCrowdRating}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
