@@ -10,31 +10,31 @@ const serviceRating = document.querySelector('#service-rating');
 const crowdRating = document.querySelector('#crowd-rating');
 const reviewText = document.querySelector('#review-text');
 const theaterIdArr = window.location.href.split('/')
-const theater_id = theaterIdArr[3]
+const theater_id = parseInt(theaterIdArr[theaterIdArr.length-1])
 async function  submitReview(event) {
-    event.preventDefault
-const theaterVal=theaterRating.value;
-const seatingVal=seatingRating.value;
-const concessionVal=concessionRating.value;
-const audioVal=audioRating.value;
-const videoVal=videoRating.value;
-const parkingVal=parkingRating.value;
-const serviceVal=serviceRating.value;
-const crowdVal=crowdRating.value;
-const reviewVal=reviewText.value;
+    event.preventDefault()
+const theaterrating=parseInt(theaterRating.value);
+const seatingrating=parseInt(seatingRating.value);
+const concessionsrating=parseInt(concessionRating.value);
+const audiorating=parseInt(audioRating.value);
+const videorating=parseInt(videoRating.value);
+const parkingrating=parseInt(parkingRating.value);
+const servicerating=parseInt(serviceRating.value);
+const crowdrating=parseInt(crowdRating.value);
+const reviewtext=reviewText.value;
 
-console.log(theaterVal)
-console.log(seatingVal)
-console.log(concessionVal)
-console.log(audioVal)
-console.log(videoVal)
-console.log(parkingVal)
-console.log(serviceVal)
-console.log(crowdVal)
-console.log(reviewVal)
+// console.log(theaterVal)
+// console.log(seatingVal)
+// console.log(concessionVal)
+// console.log(audioVal)
+// console.log(videoVal)
+// console.log(parkingVal)
+// console.log(serviceVal)
+// console.log(crowdVal)
+// console.log(reviewVal)
 const response = await fetch(`/api/reviews`, {
     method: 'POST',
-    body: JSON.stringify({ theater_id, theaterVal, seatingVal, concessionVal, audioVal, videoVal, parkingVal, serviceVal, crowdVal, reviewVal }),
+    body: JSON.stringify({ theater_id, theaterrating, seatingrating, concessionsrating, audiorating, videorating, parkingrating, servicerating, crowdrating, reviewtext }),
     headers: {
       'Content-Type': 'application/json',
     },
