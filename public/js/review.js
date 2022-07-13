@@ -10,7 +10,7 @@ const serviceRating = document.querySelector('#service-rating');
 const crowdRating = document.querySelector('#crowd-rating');
 const reviewText = document.querySelector('#review-text');
 const theaterIdArr = window.location.split('/')
-const theaterId = theaterIdArr[3]
+const theater_id = theaterIdArr[3]
 function submitReview(event) {
     event.preventDefault
 const theaterVal=theaterRating.value;
@@ -34,7 +34,7 @@ console.log(crowdVal)
 console.log(reviewVal)
 const response = await fetch(`/api/reviews`, {
     method: 'POST',
-    body: JSON.stringify({ theaterId, theaterVal, seatingVal, concessionVal, audioVal, videoVal, parkingVal, serviceVal, crowdVal, reviewVal }),
+    body: JSON.stringify({ theater_id, theaterVal, seatingVal, concessionVal, audioVal, videoVal, parkingVal, serviceVal, crowdVal, reviewVal }),
     headers: {
       'Content-Type': 'application/json',
     },
