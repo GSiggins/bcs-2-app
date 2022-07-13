@@ -1,6 +1,24 @@
 const router = require('express').Router();
 const { input } = require('../../models');
 
+router.get('/', async (req, res) => {
+  try {
+    const categoryData = await Category.findAll({
+      include:[{model: Product}]
+    });
+    res.status(200).json(categoryData);
+    
+    res.render('homepage', { 
+      theater, 
+      logged_in: req.session.logged_in 
+    });
+    
+  }catch (err) {
+    res.status(500).json(err);
+  }
+  });
+
+
 router.post('/', async (req, res) => {
   try {
     const userData = await input.create(req.body);
