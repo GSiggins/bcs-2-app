@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const { Theater, User } = require('../models');
+const { Theater, User, Review } = require('../models');
 const withAuth = require('../utils/auth');
+const sequelize = require('sequelize')
+
 
 router.get('/', async (req, res) => {
   try {
@@ -14,13 +16,13 @@ router.get('/', async (req, res) => {
       // ],
     });
 
-    // Serialize data so the template can read it
+
     const theater = theaterData.map((theater) => theater.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      theater, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      theater,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -29,27 +31,131 @@ router.get('/', async (req, res) => {
 
 router.get('/theater/:id', async (req, res) => {
   try {
-    const theaterData = await Theater.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+    const theaterAvgs = await Theater.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [{
+        model: Review,
+        attributes: [
+          [sequelize.literal(
+              '(SELECT AVG(seatingrating) FROM review)'
+          ),
+              'avgSeatingRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(concessionsrating) FROM review)'
+          ),
+              'avgConcessionsRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(audiorating) FROM review)'
+          ),
+              'avgAudioRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(videorating) FROM review)'
+          ),
+              'avgVideoRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(parkingrating) FROM review)'
+          ),
+              'avgParkingRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(servicerating) FROM review)'
+          ),
+              'avgServiceRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(crowdrating) FROM review)'
+          ),
+              'avgCrowdRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(crowdrating + servicerating + parkingrating + videorating + audiorating + concessionsrating + seatingrating)/7 FROM review)'
+          ),
+              'masterRating'
+          ],
+      ]
+    }]
     });
 
-    const theater = theaterData.get({ plain: true });
-
-    res.render('theater', {
-      ...theater,
-      logged_in: req.session.logged_in
-    });
+    console.log(theaterAvgs);
+        const theater = theaterAvgs.get({ plain: true });
+    console.log(theater);
+        res.render('theater', {
+          ...theater,
+          logged_in: req.session.logged_in
+        });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// Use withAuth middleware to prevent access to route
+router.get('/theaters', async (req, res) => {
+  try {
+    const theaterAvgs = await Theater.findAll({
+      include: [{
+        model: Review,
+        attributes: [
+          [sequelize.literal(
+              '(SELECT AVG(seatingrating) FROM review)'
+          ),
+              'avgSeatingRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(concessionsrating) FROM review)'
+          ),
+              'avgConcessionsRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(audiorating) FROM review)'
+          ),
+              'avgAudioRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(videorating) FROM review)'
+          ),
+              'avgVideoRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(parkingrating) FROM review)'
+          ),
+              'avgParkingRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(servicerating) FROM review)'
+          ),
+              'avgServiceRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(crowdrating) FROM review)'
+          ),
+              'avgCrowdRating'
+          ],
+          [sequelize.literal(
+              '(SELECT AVG(crowdrating + servicerating + parkingrating + videorating + audiorating + concessionsrating + seatingrating)/7 FROM review)'
+          ),
+              'masterRating'
+          ],
+      ]
+    }]
+    });
+    
+    console.log(theaterAvgs);
+        const theaters = theaterAvgs.map(theater => theater.get({ plain: true }))
+    console.log(theaters);
+        res.render('theaters', {
+          theaters,
+          logged_in: req.session.logged_in
+        });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/homepage', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
