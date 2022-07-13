@@ -3,11 +3,11 @@ const Theater = require('./Theater');
 const Review = require('./Review')
 
 Review.belongsTo(User, {
-    foreignKey: 'id',
+    foreignKey: 'user_id',
 });
 
 User.hasMany(Review, {
-    foreignKey: 'id',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE',
 });
 

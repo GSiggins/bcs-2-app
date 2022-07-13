@@ -7,8 +7,8 @@ const theaterData = require('./theater.json')
 
 const seedDatabase = () => {
   return sequelize.sync({ force: true }).then(() => {
-    Theater.bulkCreate(theaterData).then(() => {
-      User.bulkCreate(userData).then(() => {
+    User.bulkCreate(userData).then(() => {
+      Theater.bulkCreate(theaterData).then(() => {
         Review.bulkCreate(reviewData).then(() => {
           console.log('All Seeds Planted');
         });
