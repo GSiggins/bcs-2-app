@@ -9,9 +9,9 @@ const parkingRating = document.querySelector('#parking-rating');
 const serviceRating = document.querySelector('#service-rating');
 const crowdRating = document.querySelector('#crowd-rating');
 const reviewText = document.querySelector('#review-text');
-const theaterIdArr = window.location.split('/')
+const theaterIdArr = window.location.href.split('/')
 const theater_id = theaterIdArr[3]
-function submitReview(event) {
+async function  submitReview(event) {
     event.preventDefault
 const theaterVal=theaterRating.value;
 const seatingVal=seatingRating.value;
