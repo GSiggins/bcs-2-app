@@ -5,8 +5,40 @@ const sequelize = require('sequelize')
 const { Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
+      // Get all projects and JOIN with user data
+      const reviewData = await Review.findAll({
+        where: {
+            theater_id: req.params.id
+        },
+      });
+  
+      // Serialize data so the template can read it
+      const reviews = reviewData.map((Review) => Review.get({ plain: true }));
+  
+      // Pass serialized data and session flag into template
+      res.render('reviews', { 
+        reviews 
+        // logged_in: req.session.logged_in 
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+router.post('/', async (req, res) => {
+    try {
+        console.log(req.body);
         const newReview = await Review.create({
             ...req.body,
             user_id: req.session.user_id,
@@ -14,6 +46,7 @@ router.post('/:id', withAuth, async (req, res) => {
 
         res.status(200).json(newReview);
     } catch (err) {
+        console.log(err);
         res.status(400).json(err);
     }
 });
