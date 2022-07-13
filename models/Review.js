@@ -10,15 +10,14 @@ Review.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true,
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model:'user',
                 key: 'id',
             }
-        },
-        user_id: {
-            type: DataTypes.STRING,
-            allowNull: false,
-
         },
         reviewtext: {
             type: DataTypes.STRING,
