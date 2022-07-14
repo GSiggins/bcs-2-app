@@ -8,10 +8,19 @@ const withAuth = require('../../utils/auth');
 
 router.get('/:id', async (req, res) => {
     try {
-        const ratingAvgs = await Theater.findOne({
+        const reviewsRender = await Review.findAll({
             where: {
-                id: req.params.id
+                theater_id: req.params.id
             },
+            plain: true,
+            })
+            console.log('Reviews Start Here')
+            res.json(reviewsRender)
+        const ratingAvgs = await Review.findAll({
+            where: {
+                theater_id: req.params.id,
+            },
+            plain: true,
             attributes: [
                 [sequelize.literal(
                     '(SELECT AVG(seatingrating) FROM review)'
@@ -55,12 +64,6 @@ router.get('/:id', async (req, res) => {
                 ],
             ]
         })
-        const reviewsRender = await Review.findAll({
-            where: {
-                theater_id: req.params.id
-            }
-            })
-            res.json(reviewsRender)
     } catch (err) {
         res.status(400).json(err);
     }

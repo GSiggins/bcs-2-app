@@ -6,7 +6,7 @@ const reviewRoutes = require('./reviews');
 
 router.use('/users', userRoutes);
 router.use('/theaters', theaterRoutes);
-router.use('/reviews', reviewRoutes);
+router.use('/theater', reviewRoutes);
 
 
 module.exports = router;
