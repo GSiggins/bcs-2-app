@@ -6,16 +6,8 @@ const sequelize = require('sequelize')
 
 router.get('/', async (req, res) => {
   try {
-    // Get all theaters and JOIN with user data
     const theaterData = await Theater.findAll({
-      // include: [
-      //   {
-      //     model: User,
-      //     attributes: ['name'],
-      //   },
-      // ],
     });
-
 
     const theater = theaterData.map((theater) => theater.get({ plain: true }));
 
@@ -29,73 +21,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/theater/:id', async (req, res) => {
-  try {
-    const theaterAvgs = await Theater.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [{
-        model: Review,
-        attributes: [
-          "reviewtext",
-          [sequelize.literal(
-              '(SELECT AVG(seatingrating) FROM review)'
-          ),
-              'avgSeatingRating'
-          ],
-          [sequelize.literal(
-              '(SELECT AVG(concessionsrating) FROM review)'
-          ),
-              'avgConcessionsRating'
-          ],
-          [sequelize.literal(
-              '(SELECT AVG(audiorating) FROM review)'
-          ),
-              'avgAudioRating'
-          ],
-          [sequelize.literal(
-              '(SELECT AVG(videorating) FROM review)'
-          ),
-              'avgVideoRating'
-          ],
-          [sequelize.literal(
-              '(SELECT AVG(parkingrating) FROM review)'
-          ),
-              'avgParkingRating'
-          ],
-          [sequelize.literal(
-              '(SELECT AVG(servicerating) FROM review)'
-          ),
-              'avgServiceRating'
-          ],
-          [sequelize.literal(
-              '(SELECT AVG(crowdrating) FROM review)'
-          ),
-              'avgCrowdRating'
-          ],
-          [sequelize.literal(
-              '(SELECT AVG(crowdrating + servicerating + parkingrating + videorating + audiorating + concessionsrating + seatingrating)/7 FROM review)'
-          ),
-              'masterRating'
-          ],
-      ]
-    }]
-    });
-
-    console.log(theaterAvgs);
-        const theater = theaterAvgs.get({ plain: true });
-    console.log(theater);
-        res.render('theater', {
-          ...theater,
-          logged_in: req.session.logged_in
-        });
-        // res.json(theater)
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 router.get('/theaters', async (req, res) => {
   try {
     const theaterAvgs = await Theater.findAll({
@@ -103,85 +28,166 @@ router.get('/theaters', async (req, res) => {
         model: Review,
         attributes: [
           [sequelize.literal(
-              '(SELECT AVG(seatingrating) FROM review)'
+            '(SELECT AVG(seatingrating) FROM review)'
           ),
-              'avgSeatingRating'
+            'avgSeatingRating'
           ],
           [sequelize.literal(
-              '(SELECT AVG(concessionsrating) FROM review)'
+            '(SELECT AVG(concessionsrating) FROM review)'
           ),
-              'avgConcessionsRating'
+            'avgConcessionsRating'
           ],
           [sequelize.literal(
-              '(SELECT AVG(audiorating) FROM review)'
+            '(SELECT AVG(audiorating) FROM review)'
           ),
-              'avgAudioRating'
+            'avgAudioRating'
           ],
           [sequelize.literal(
-              '(SELECT AVG(videorating) FROM review)'
+            '(SELECT AVG(videorating) FROM review)'
           ),
-              'avgVideoRating'
+            'avgVideoRating'
           ],
           [sequelize.literal(
-              '(SELECT AVG(parkingrating) FROM review)'
+            '(SELECT AVG(parkingrating) FROM review)'
           ),
-              'avgParkingRating'
+            'avgParkingRating'
           ],
           [sequelize.literal(
-              '(SELECT AVG(servicerating) FROM review)'
+            '(SELECT AVG(servicerating) FROM review)'
           ),
-              'avgServiceRating'
+            'avgServiceRating'
           ],
           [sequelize.literal(
-              '(SELECT AVG(crowdrating) FROM review)'
+            '(SELECT AVG(crowdrating) FROM review)'
           ),
-              'avgCrowdRating'
+            'avgCrowdRating'
           ],
           [sequelize.literal(
-              '(SELECT AVG(crowdrating + servicerating + parkingrating + videorating + audiorating + concessionsrating + seatingrating)/7 FROM review)'
+            '(SELECT AVG(crowdrating + servicerating + parkingrating + videorating + audiorating + concessionsrating + seatingrating)/7 FROM review)'
           ),
-              'masterRating'
+            'masterRating'
           ],
-      ]
-    }]
+        ]
+      }]
     });
-        const theaters = theaterAvgs.map(theater => theater.get({ plain: true }))
-        res.render('theaters', {
-          theaters,
-          logged_in: req.session.logged_in
-        });
+    const theaters = theaterAvgs.map(theater => theater.get({ plain: true }))
+    res.render('theaters', {
+      theaters,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/homepage', withAuth, async (req, res) => {
+router.get('/theater/:id', async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      // attributes: { exclude: ['password'] },
-      // include: [{ model: Theater }],
-    });
-
-    const user = userData.get({ plain: true });
-
-    res.render('homepage', {
-      ...user,
-      logged_in: true
-    });
+    // const reviewsRender = await Review.findAll({
+    //     where: {
+    //         theater_id: req.params.id
+    //     },
+    //     plain: true,
+    //     })
+    //     console.log('Reviews Start Here')
+    //     console.log('--------------------------------------')
+    //     console.log(req.params.id)
+    const ratingAvgs = await Review.findAll({
+      where: {
+        theater_id: req.params.id,
+      },
+      plain: true,
+      include: [{
+        model: Theater, include: [Review]}
+      ],
+      attributes: [
+        [sequelize.literal(
+          '(SELECT AVG(seatingrating) FROM review)'
+        ),
+          'avgSeatingRating'
+        ],
+        [sequelize.literal(
+          '(SELECT AVG(concessionsrating) FROM review)'
+        ),
+          'avgConcessionsRating'
+        ],
+        [sequelize.literal(
+          '(SELECT AVG(audiorating) FROM review)'
+        ),
+          'avgAudioRating'
+        ],
+        [sequelize.literal(
+          '(SELECT AVG(videorating) FROM review)'
+        ),
+          'avgVideoRating'
+        ],
+        [sequelize.literal(
+          '(SELECT AVG(parkingrating) FROM review)'
+        ),
+          'avgParkingRating'
+        ],
+        [sequelize.literal(
+          '(SELECT AVG(servicerating) FROM review)'
+        ),
+          'avgServiceRating'
+        ],
+        [sequelize.literal(
+          '(SELECT AVG(crowdrating) FROM review)'
+        ),
+          'avgCrowdRating'
+        ],
+        [sequelize.literal(
+          '(SELECT AVG(crowdrating + servicerating + parkingrating + videorating + audiorating + concessionsrating + seatingrating)/7 FROM review)'
+        ),
+          'masterRating'
+        ],
+      ]
+    })
+    // const reviews = Review.findAll({
+    //   where: {
+    //     theater_id: req.params.id,
+    //   },
+    // })
+    // console.log(reviews)
+    const ratingsPlain = ratingAvgs.get({ plain: true })
+    console.log(ratingsPlain);
+    res.render('theater',
+      ratingsPlain,
+      // reviews
+    );
+    
   } catch (err) {
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
-});
+})
 
-router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/homepage');
-    return;
-  }
 
-  res.render('login');
-});
+  router.get('/homepage', withAuth, async (req, res) => {
+    try {
+      // Find the logged in user based on the session ID
+      const userData = await User.findByPk(req.session.user_id, {
+        // attributes: { exclude: ['password'] },
+        // include: [{ model: Theater }],
+      });
 
-module.exports = router;
+      const user = userData.get({ plain: true });
+
+      res.render('homepage', {
+        ...user,
+        logged_in: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+  router.get('/login', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+    if (req.session.logged_in) {
+      res.redirect('/homepage');
+      return;
+    }
+
+    res.render('login');
+  });
+
+  module.exports = router;

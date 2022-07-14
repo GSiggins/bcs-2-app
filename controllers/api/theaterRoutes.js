@@ -16,6 +16,8 @@ router.get('/:id', async (req, res) => {
             })
             console.log('Reviews Start Here')
             res.json(reviewsRender)
+            console.log('--------------------------------------')
+            console.log(req.params.id)
         const ratingAvgs = await Review.findAll({
             where: {
                 theater_id: req.params.id,
