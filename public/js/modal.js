@@ -36,9 +36,12 @@ async function submitReview(event) {
     });
     if (response.ok) {
         console.log('worked')
+        window.location.reload();
+
     }
 
 }
+
 
 
 saveBtn.addEventListener('click', submitReview)
