@@ -1,43 +1,3 @@
-// const router = require("../../controllers/api/reviews");
-// const { Review } = require("../../models");
-
-// const form = $('#form')
-
-// const reviewText = $('#review-text').val().trim()
-// const theater = $('#theater-id')
-// const seating = $('#seating-rating')
-// const concessions = $('#concession-rating')
-// const audio = $('#audio-rating')
-// const video = $('#video-rating')
-// const parking = $('#parking-rating')
-// const service = $('#service-rating')
-// const crowd = $('#crowd-rating')
-// const submitBtn = $('#submit-btn')
-
-// function reviewSubmit(event) {
-//     event.preventDefault();
-//     console.log('hello');
-// const userReview = {
-// theater_id: theater,
-// reviewtext: reviewText,
-// seatingrating: seating.val(),
-// concessionsrating: concessions.val(),
-// audiorating: audio.val(),
-// videorating: video.val(),
-// parkingrating: parking.val(),
-// servicerating: service.val(),
-// crowdrating: crowd.val(),
-// }
-// console.log(userReview)
-// }
-
-// router.POST
-
-// myModal.addEventListener('hidden.bs.modal', event => {
-//   // do something...
-// })
-
-// submitBtn.on('click', reviewSubmit)
 
 
 const saveBtn = document.querySelector('#save-btn');
@@ -64,30 +24,6 @@ const parkingrating=parseInt(parkingRating.value);
 const servicerating=parseInt(serviceRating.value);
 const crowdrating=parseInt(crowdRating.value);
 const reviewtext=reviewText.value;
-
-
-// router.post('/:id', async (req, res) => {
-//   try {
-//     const reviewData = JSON.stringify(
-//       theater_id,
-//       theaterrating, 
-//       seatingrating, 
-//       concessionsrating,
-//       audiorating,
-//       videorating,
-//       parkingrating,
-//       servicerating,
-//       crowdrating,
-//       reviewtext
-//       )
-//     const newReview = await Review.create(reviewData);
-//     console.json(newReview);
-//     res.status(200).json(newReview);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
-
 }
 
 
