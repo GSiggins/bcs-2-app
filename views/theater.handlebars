@@ -31,15 +31,15 @@
     {{#each reviews as |review|}}
     <div class='d-flex justify-content-center bg dark col-8 text-center'>
     <h4> Review: </h4>
-        <p>{{reviews.reviewtext}}</p>
+        <p>{{review.reviewtext}}</p>
     <ul class="list-group list-group-flush bg-dark mt-3">
-        <li class="list-group-item">Seating: {{reviews.avgSeatingRating}}</li>
-        <li class="list-group-item">Concessions: {{reviews.avgConcessionsRating}}</li>
-        <li class="list-group-item">Audio: {{reviews.avgAudioRating}}</li>
-        <li class="list-group-item">Video: {{reviews.avgVideoRating}}</li>
-        <li class="list-group-item">Parking: {{reviews.avgParkingRating}}</li>
-        <li class="list-group-item">Service: {{reviews.avgServiceRating}}</li>
-        <li class="list-group-item">Crowd: {{reviews.avgCrowdRating}}</li>
+        <li class="list-group-item">Seating: {{review.avgSeatingRating}}</li>
+        <li class="list-group-item">Concessions: {{review.avgConcessionsRating}}</li>
+        <li class="list-group-item">Audio: {{review.avgAudioRating}}</li>
+        <li class="list-group-item">Video: {{review.avgVideoRating}}</li>
+        <li class="list-group-item">Parking: {{review.avgParkingRating}}</li>
+        <li class="list-group-item">Service: {{review.avgServiceRating}}</li>
+        <li class="list-group-item">Crowd: {{review.avgCrowdRating}}</li>
     </ul>
     </div>
     {{/each}}

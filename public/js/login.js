@@ -1,3 +1,5 @@
+let url = "";
+console.log("url")
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -44,6 +46,22 @@ const signupFormHandler = async (event) => {
   }
 };
 
+var myWidget = cloudinary.createUploadWidget({
+  cloudName: 'divtrjryn',
+  uploadPreset: 'testing'
+}, (error, result) => {
+  if (!error && result && result.event === "success") {
+    console.log('Done! Here is the image info: ', result.info);
+  }
+}
+)
+
+document.getElementById("upload_widget").addEventListener("click", function (event) {
+  myWidget.open();
+  event.preventDefault();
+}, false);
+
+
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
@@ -51,3 +69,10 @@ document
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
+
+
+  
+  document.getElementById("upload_widget").addEventListener("click", function (event) {
+    event.preventDefault();
+    myWidget.open();
+  }, true);
