@@ -36,10 +36,12 @@ const response = await fetch(`/api/reviews`, {
   });
   if(response.ok){
       console.log('worked')
+      window.location.reload();
 
   }
 
 }
+
 
 
 saveBtn.addEventListener('click', submitReview)
