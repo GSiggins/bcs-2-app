@@ -90,9 +90,10 @@ to {bottom: -100px;}
   z-index:10;
 }
 #title {
-bottom: 100px;
+/* bottom: 200px;
 position: absolute;
-top: 300px;
+top: 400px; */
+margin: auto auto;
 font-family: 'Bungee Shade', cursive;  
 color: #fff;
 animation: pulsate 0.11s ease-in-out infinite alternate; 
