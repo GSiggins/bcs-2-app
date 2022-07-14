@@ -66,28 +66,17 @@ const crowdrating=parseInt(crowdRating.value);
 const reviewtext=reviewText.value;
 
 
-// router.post('/:id', async (req, res) => {
-//   try {
-//     const reviewData = JSON.stringify(
-//       theater_id,
-//       theaterrating, 
-//       seatingrating, 
-//       concessionsrating,
-//       audiorating,
-//       videorating,
-//       parkingrating,
-//       servicerating,
-//       crowdrating,
-//       reviewtext
-//       )
-//     const newReview = await Review.create(reviewData);
-//     console.json(newReview);
-//     res.status(200).json(newReview);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+const response = await fetch(`/api/reviews`, {
+    method: 'POST',
+    body: JSON.stringify({ theater_id, theaterrating, seatingrating, concessionsrating, audiorating, videorating, parkingrating, servicerating, crowdrating, reviewtext }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  if(response.ok){
+      console.log('worked')
 
+  }
 }
 
 
