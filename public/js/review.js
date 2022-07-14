@@ -32,7 +32,7 @@ const reviewtext=reviewText.value;
 // console.log(serviceVal)
 // console.log(crowdVal)
 // console.log(reviewVal)
-const response = await fetch(`/api/reviews`, {
+const response = await fetch(`/api/theater/`, {
     method: 'POST',
     body: JSON.stringify({ theater_id, theaterrating, seatingrating, concessionsrating, audiorating, videorating, parkingrating, servicerating, crowdrating, reviewtext }),
     headers: {
@@ -46,4 +46,4 @@ const response = await fetch(`/api/reviews`, {
 }
 
 
-// saveBtn.addEventListener('click', submitReview)
+saveBtn.addEventListener('click', submitReview)
