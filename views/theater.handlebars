@@ -1,44 +1,44 @@
 <div class="bg-secondary">
     <div class="container-xl">
-        <nav class="navbar bg-light">
+        <nav class="navbar bg-dark  border border-secondary">
             <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1 fs-1">{{theater.name}}</span>
+                <span class="navbar-brand mb-0 h1 fs-1 text-white">{{theater.name}}</span>
             </div>
         </nav>
         <div class="d-flex w-100 justify-content-between">
-            <small class="m-4">{{theater.address}}</small>
+            <small class="m-3">{{theater.address}}</small>
         </div>
         <h3 class='m-2'>Overall Rating: {{masterRating}}</h3>
         </button>
         </h2>
         <div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Seating: {{avgSeatingRating}}</li>
-                <li class="list-group-item">Concessions: {{avgConcessionsRating}}</li>
-                <li class="list-group-item">Audio: {{avgAudioRating}}</li>
-                <li class="list-group-item">Video: {{avgVideoRating}}</li>
-                <li class="list-group-item">Parking: {{avgParkingRating}}</li>
-                <li class="list-group-item">Service: {{avgServiceRating}}</li>
-                <li class="list-group-item">Crowd: {{avgCrowdRating}}</li>
+            <ul class="list-group list-group-flush rounded border border-secondary">
+                <li class="list-group-item bg-dark text-white">Seating: {{avgSeatingRating}}</li>
+                <li class="list-group-item bg-dark text-white">Concessions: {{avgConcessionsRating}}</li>
+                <li class="list-group-item bg-dark text-white">Audio: {{avgAudioRating}}</li>
+                <li class="list-group-item bg-dark text-white">Video: {{avgVideoRating}}</li>
+                <li class="list-group-item bg-dark text-white">Parking: {{avgParkingRating}}</li>
+                <li class="list-group-item bg-dark text-white">Service: {{avgServiceRating}}</li>
+                <li class="list-group-item bg-dark text-white">Crowd: {{avgCrowdRating}}</li>
             </ul>
         </div>
     </div>
 
     {{#each theater.reviews as |review|}}
-    <div class='review-box d-flex justify-content-center flex-wrap bg-info col-10 text-center m-5'>
+    <div class='review-box d-flex justify-content-center flex-wrap bg-dark text-white col-10 text-center m-5'>
         <h3 class="m-4"> Review: </h3>
         <h4 class=" mt-4">{{review.reviewtext}}</h4>
-        <div>
-            <ul class="list-group list-group mt-5">
-                <li class="list-group-item">Seating: {{review.seatingrating}}</li>
-                <li class="list-group-item">Concessions: {{review.concessionsrating}}</li>
-                <li class="list-group-item">Audio: {{review.audiorating}}</li>
-                <li class="list-group-item">Video: {{review.videorating}}</li>
-                <li class="list-group-item">Parking: {{review.parkingrating}}</li>
-                <li class="list-group-item">Service: {{review.servicerating}}</li>
-                <li class="list-group-item">Crowd: {{review.crowdrating}}</li>
-            </ul>
-        </div>
+    </div>
+    <div>
+        <ul class="col-12 list-group list-group-horizontal mt-2 bg-dark text-white border border-secondary ">
+            <li class="list-group-item bg-dark text-white flex-fill">Seating: {{review.seatingrating}}</li>
+            <li class="list-group-item bg-dark text-white flex-fill">Concessions: {{review.concessionsrating}}</li>
+            <li class="list-group-item bg-dark text-white flex-fill">Audio: {{review.audiorating}}</li>
+            <li class="list-group-item bg-dark text-white flex-fill">Video: {{review.videorating}}</li>
+            <li class="list-group-item bg-dark text-white flex-fill">Parking: {{review.parkingrating}}</li>
+            <li class="list-group-item bg-dark text-white flex-fill">Service: {{review.servicerating}}</li>
+            <li class="list-group-item bg-dark text-white flex-fill">Crowd: {{review.crowdrating}}</li>
+        </ul>
     </div>
     {{/each}}
 
