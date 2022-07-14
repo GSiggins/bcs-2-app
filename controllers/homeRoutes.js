@@ -38,6 +38,7 @@ router.get('/theater/:id', async (req, res) => {
       include: [{
         model: Review,
         attributes: [
+          "reviewtext",
           [sequelize.literal(
               '(SELECT AVG(seatingrating) FROM review)'
           ),
@@ -89,6 +90,7 @@ router.get('/theater/:id', async (req, res) => {
           ...theater,
           logged_in: req.session.logged_in
         });
+        // res.json(theater)
   } catch (err) {
     res.status(500).json(err);
   }
