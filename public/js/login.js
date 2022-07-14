@@ -34,7 +34,7 @@ const signupFormHandler = async (event) => {
   if (name && email && password) {
     const response = await fetch('/api/users', {
       method: 'POST',
-      body: JSON.stringify({ name, email, password }),
+      body: JSON.stringify({ name, email, password, url }),
       headers: { 'Content-Type': 'application/json' },
     });
 
@@ -52,6 +52,7 @@ var myWidget = cloudinary.createUploadWidget({
 }, (error, result) => {
   if (!error && result && result.event === "success") {
     console.log('Done! Here is the image info: ', result.info);
+    url = result.info.url
   }
 }
 )
@@ -70,8 +71,6 @@ document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
 
-
-  
   document.getElementById("upload_widget").addEventListener("click", function (event) {
     event.preventDefault();
     myWidget.open();
