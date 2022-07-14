@@ -63,6 +63,13 @@
     animation-delay: 2s;
     
 }
+
+.review-box {
+  border-radius: 15px;
+  background-color: #1a1a1a;
+  color: #000000;
+}
+
 @keyframes intro-b {
     from {top: 0px;}
     to {top: -350px;}
