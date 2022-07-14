@@ -24,6 +24,21 @@ const parkingrating=parseInt(parkingRating.value);
 const servicerating=parseInt(serviceRating.value);
 const crowdrating=parseInt(crowdRating.value);
 const reviewtext=reviewText.value;
+
+
+
+const response = await fetch(`/api/reviews`, {
+    method: 'POST',
+    body: JSON.stringify({ theater_id, theaterrating, seatingrating, concessionsrating, audiorating, videorating, parkingrating, servicerating, crowdrating, reviewtext }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  if(response.ok){
+      console.log('worked')
+
+  }
+
 }
 
 
