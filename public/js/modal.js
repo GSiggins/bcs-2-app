@@ -15,30 +15,31 @@ const theaterIdArr = window.location.href.split('/')
 const theater_id = parseInt(theaterIdArr[theaterIdArr.length - 1])
 async function submitReview(event) {
     event.preventDefault()
-    const theaterrating = parseInt(theaterRating.value);
-    const seatingrating = parseInt(seatingRating.value);
-    const concessionsrating = parseInt(concessionRating.value);
-    const audiorating = parseInt(audioRating.value);
-    const videorating = parseInt(videoRating.value);
-    const parkingrating = parseInt(parkingRating.value);
-    const servicerating = parseInt(serviceRating.value);
-    const crowdrating = parseInt(crowdRating.value);
-    const reviewtext = reviewText.value;
+const theaterrating=parseInt(theaterRating.value);
+const seatingrating=parseInt(seatingRating.value);
+const concessionsrating=parseInt(concessionRating.value);
+const audiorating=parseInt(audioRating.value);
+const videorating=parseInt(videoRating.value);
+const parkingrating=parseInt(parkingRating.value);
+const servicerating=parseInt(serviceRating.value);
+const crowdrating=parseInt(crowdRating.value);
+const reviewtext=reviewText.value;
 
 
 
-    const response = await fetch(`/api/reviews`, {
-        method: 'POST',
-        body: JSON.stringify({ theater_id, theaterrating, seatingrating, concessionsrating, audiorating, videorating, parkingrating, servicerating, crowdrating, reviewtext }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
-    if (response.ok) {
-        console.log('worked')
-        window.location.reload();
+const response = await fetch(`/api/reviews`, {
+    method: 'POST',
+    body: JSON.stringify({ theater_id, theaterrating, seatingrating, concessionsrating, audiorating, videorating, parkingrating, servicerating, crowdrating, reviewtext }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  if(response.ok){
+      console.log('worked')
+      window.location.reload();
 
-    }
+  }
+
 
 }
 
