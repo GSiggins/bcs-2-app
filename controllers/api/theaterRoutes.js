@@ -8,7 +8,7 @@ const withAuth = require('../../utils/auth');
 
 router.get('/:id', async (req, res) => {
     try {
-        const seatingAvg = await Theater.findOne({
+        const ratingAvgs = await Theater.findOne({
             where: {
                 id: req.params.id
             },
@@ -55,7 +55,7 @@ router.get('/:id', async (req, res) => {
                 ],
             ]
         })
-        res.json(seatingAvg);
+        res.json(ratingAvgs);
     } catch (err) {
         res.status(400).json(err);
     }

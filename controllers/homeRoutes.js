@@ -143,10 +143,7 @@ router.get('/theaters', async (req, res) => {
       ]
     }]
     });
-    
-    console.log(theaterAvgs);
         const theaters = theaterAvgs.map(theater => theater.get({ plain: true }))
-    console.log(theaters);
         res.render('theaters', {
           theaters,
           logged_in: req.session.logged_in
