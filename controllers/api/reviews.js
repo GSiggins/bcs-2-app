@@ -6,7 +6,20 @@ const { Review } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // /theater/1
+router.post('/', async (req, res) => {
+    try {
+        console.log(req.body);
+        const newReview = await Review.create({
+            ...req.body,
+            user_id: req.session.user_id,
+        });
 
+        res.status(200).json(newReview);
+    } catch (err) {
+        console.log(err);
+        res.status(400).json(err);
+    }
+});
 // router.get('/:id', async (req, res) => {
 //     try {
 //         // Get all projects and JOIN with user data
