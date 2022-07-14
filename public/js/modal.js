@@ -12,8 +12,8 @@ const serviceRating = document.querySelector('#service-rating');
 const crowdRating = document.querySelector('#crowd-rating');
 const reviewText = document.querySelector('#review-text');
 const theaterIdArr = window.location.href.split('/')
-const theater_id = parseInt(theaterIdArr[theaterIdArr.length-1])
-async function  submitReview(event) {
+const theater_id = parseInt(theaterIdArr[theaterIdArr.length - 1])
+async function submitReview(event) {
     event.preventDefault()
 const theaterrating=parseInt(theaterRating.value);
 const seatingrating=parseInt(seatingRating.value);
@@ -39,6 +39,7 @@ const response = await fetch(`/api/reviews`, {
       window.location.reload();
 
   }
+
 
 }
 
