@@ -93,7 +93,7 @@ to {bottom: -100px;}
 /* bottom: 200px;
 position: absolute;
 top: 400px; */
-margin: auto auto;
+margin-bottom: 40%;
 font-family: 'Bungee Shade', cursive;  
 color: #fff;
 animation: pulsate 0.11s ease-in-out infinite alternate; 
@@ -139,7 +139,11 @@ font-family: 'Limelight', cursive;
 
 h1 {
   font-size: 7rem;
+  bottom: 100px;
 }
+
+
+
 
 
 
@@ -186,3 +190,6 @@ h1 {
         height: 400px;
         overflow-y: scroll;
     }
+
+
+    
