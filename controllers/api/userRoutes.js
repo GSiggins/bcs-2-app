@@ -48,6 +48,15 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.get('/start', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/theaters');
+    return;
+  }
+
+  res.render('login');
+});
+
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
