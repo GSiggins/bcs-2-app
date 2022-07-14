@@ -406,6 +406,8 @@ ol,
 dl {
   margin-top: 0;
   margin-bottom: 1rem;
+  border-radius: 5px;
+
 }
 
 label {
@@ -433,6 +435,8 @@ a:hover {
 .w-100 {
   width: 100%;
 }
+
+
 
 .w-75 {
   width: 75%;
