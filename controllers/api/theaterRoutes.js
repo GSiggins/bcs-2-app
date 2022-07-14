@@ -55,7 +55,12 @@ router.get('/:id', async (req, res) => {
                 ],
             ]
         })
-        res.json(ratingAvgs);
+        const reviewsRender = await Review.findAll({
+            where: {
+                theater_id: req.params.id
+            }
+            })
+            res.json(reviewsRender)
     } catch (err) {
         res.status(400).json(err);
     }
