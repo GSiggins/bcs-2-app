@@ -29,9 +29,10 @@
     </div>
 
     {{#each reviews as |review|}}
-    {{reviews.reviewtext}}
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Review: {{reviews.reviewtext}}</li>
+    <div class='d-flex justify-content-center bg dark col-8 text-center'>
+    <h4> Review: </h4>
+        <p>{{reviews.reviewtext}}</p>
+    <ul class="list-group list-group-flush bg-dark mt-3">
         <li class="list-group-item">Seating: {{reviews.avgSeatingRating}}</li>
         <li class="list-group-item">Concessions: {{reviews.avgConcessionsRating}}</li>
         <li class="list-group-item">Audio: {{reviews.avgAudioRating}}</li>
@@ -40,6 +41,7 @@
         <li class="list-group-item">Service: {{reviews.avgServiceRating}}</li>
         <li class="list-group-item">Crowd: {{reviews.avgCrowdRating}}</li>
     </ul>
+    </div>
     {{/each}}
 
     <!-- Button trigger modal -->
@@ -87,7 +89,7 @@
                         <textarea id="review-text" style="width: 450px; height:200px;"></textarea>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="save-btn">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="save-btn">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </form>
@@ -100,5 +102,5 @@
     integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
 
     crossorigin="anonymous"></script>
-<script src="../public/js/review.js"></script>
+
 
