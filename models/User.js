@@ -16,6 +16,9 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    url: {
+      type: DataTypes.STRING,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -54,5 +57,6 @@ User.init(
     modelName: 'user',
   }
 );
+
 
 module.exports = User;
