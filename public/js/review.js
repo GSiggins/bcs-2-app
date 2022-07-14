@@ -46,4 +46,4 @@ const response = await fetch(`/api/reviews`, {
 }
 
 
-saveBtn.addEventListener('click', submitReview)
+// saveBtn.addEventListener('click', submitReview)
