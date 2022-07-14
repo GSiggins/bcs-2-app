@@ -58,7 +58,7 @@
     top: 0;
     left: 0;
     animation-name: intro-b;
-    animation-duration: 8s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
     animation-delay: 2s;
     
@@ -75,7 +75,7 @@
     bottom: 0px;
     left: 0;
     animation-name: intro-a;
-    animation-duration: 7s;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
     animation-delay: 2s;
 }
